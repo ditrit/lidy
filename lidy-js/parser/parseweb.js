@@ -1,4 +1,3 @@
-/*import fs   from 'fs' // only for node
 import { Ctx } from './lidyctx.js'
 import { LidyError } from './errors.js'
 import { ScalarParser } from './scalarparser.js'
@@ -98,18 +97,11 @@ function parse_src(ctx, src_data) {
 export function parse(input) { 
   // input is an object with two attributes :
   //  - one to provide the source code to code, 
-  //    among 'src_file' and 'src_data' depending on whether you want to indicate a file or a text.
+  //    'src_data' depending on whether you want to indicate a text.
   //  - one to provide the lidy grammar to use,  
-  //    among 'dsl_file' and 'dsl_data' depending on whether you want to indicate a file or a text.
-  // if a both filename and data are provided, content of the file is used rather than data
-  if (input.dsl_file != null) {
-    input.dsl_data = fs.readFileSync(input.dsl_file, 'utf8')
-  } else { input.dsl_file = 'stdin' }
+  //    'dsl_data' depending on whether you want to indicate a text.
   if (input.dsl_data == null) { throw Error("No dsl definition found from provided input") }
 
-  if (input.src_file != null) {
-    input.src_data = fs.readFileSync(input.src_file, 'utf8')
-  } else { input.src_file = 'stdin' }
   if (input.dsl_data == null) { throw Error("No source code found from provided input") }
 
   if (!input.keyword) input.keyword = 'main' // use 'top' rule of the grammat as entry point if none is provided
@@ -122,4 +114,3 @@ export function parse(input) {
 
 }
 
-*/

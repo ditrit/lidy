@@ -1,7 +1,11 @@
-import { parse } from './parser/parse.js'
+import { parse } from './parser/parseweb.js'
+/* eslint-disable */
 
-let res = parse({src_file: '../schemas/schema.tosca.yaml', dsl_file: '../schemas/schema.lidy.yaml'})
+export default { parse } 
+
+
+//let res = parse({src_data: '../schemas/schema.tosca.yaml', dsl_data: '../schemas/schema.lidy.yaml'})
 //let res = parse({src_file: './tests/test.yaml', dsl_file: '../schemas/schema.lidy.yaml'})
-console.log(res)
-console.log('ERRORS :') 
-console.log(res.errors)
+//console.log(res)
+//console.log('ERRORS :') 
+// console.log(res.errors)
